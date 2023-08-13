@@ -4,24 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asap+Condensed:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Roll The Dice!</title>
 </head>
 <body>
     <div class="container">
-        <h1 id="message">Player 1 Turn</h1>
-        <div class="players">
-            <div id="player-1">
-                <h2>
-                    Score: <span id="player1Scoreboard">0</span>
-                </h2>
-                <div id="player1Dice" class="dice active">-</div>
-            </div>
-            <div id="player-2">
-                <h2>
-                    Score: <span id="player2Scoreboard">0</span>
-                </h2>
-                <div id="player2Dice" class="dice">-</div>
+        <header>
+            <i class="fa-solid fa-dice"></i>
+            <h1>Roll The Dice</h1>
+        </header>
+        <div class="player-screen">
+            <h2 id="message">Player 1 Turn</h2>
+            <div class="players">
+                <div id="player-1">
+                    <h3>
+                        Score: <span id="player1Scoreboard">0</span>
+                    </h3>
+                    <div id="player1DiceArea" class="playerDiceArea">
+                        <img src="img/dice.png" alt="" class="image1 show">
+                        <div id="player1Dice" class="dice active">-</div>
+                    </div>
+                </div>
+                <div id="player-2">
+                    <h3>
+                        Score: <span id="player2Scoreboard">0</span>
+                    </h3>
+                    <div id="player1DiceArea" class="playerDiceArea">
+                        <img src="img/dice.png" alt="" class="image2">
+                        <div id="player2Dice" class="dice">-</div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="buttons">
