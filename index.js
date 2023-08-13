@@ -1,6 +1,8 @@
 let player1Score = 0;
 let player2Score = 0;
 let player1Turn = true;
+let countTurn1 = 0;
+let countTurn2 = 0;
 
 let messageEl = document.getElementById("message");
 const player1Scoreboard = document.getElementById("player1Scoreboard");
@@ -23,6 +25,21 @@ function showDiceBtn() {
     resetBtn.style.display = "none";
 }
 
+function removeStyle() {
+    img2.classList.remove("show");
+    player2Dice.classList.remove("active");
+    img1.classList.remove("show");
+    player1Dice.classList.remove("active");
+}
+
+function victory1() {
+    messageEl.textContent = "Player 1 has won the game! 🥳";
+}
+
+function victory2() {
+    messageEl.textContent = "Player 2 has won the game! 🥳";
+}
+
 rollBtn.addEventListener("click", function() {
     const dice = Math.floor(Math.random() * 6 ) + 1;
 
@@ -36,6 +53,7 @@ rollBtn.addEventListener("click", function() {
         player1Dice.textContent = dice;
         player2Dice.textContent = "-";
         messageEl.textContent = "Player 2 Turn";
+        countTurn1++;;
     } else {
         player1Dice.classList.add("active");
         player2Dice.classList.remove("active");
@@ -46,17 +64,29 @@ rollBtn.addEventListener("click", function() {
         player2Dice.textContent = dice;
         player1Dice.textContent = "-";
         messageEl.textContent = "Player 1 Turn";
+        countTurn2++;
     }
 
-    if(player1Score > 19) {
-        messageEl.textContent = "Player 1 has won the game! 🥳";
-        img2.classList.remove("show");
-        player2Dice.classList.remove("active");
+    let gap = 0;
+    gap = player1Score - player2Score;
+    
+    if(player1Score > 19 && countTurn1 === countTurn2) {
+        if(player2Score > player1Score) {
+            victory2();
+            removeStyle();
+            showResetBtn();
+        } else if(player1Score > player2Score){
+            victory1();
+            removeStyle();
+            showResetBtn();
+        }
+    } else if(player1Score > 19 && gap > 6) {
+        victory1();
+        removeStyle();
         showResetBtn();
     } else if(player2Score > 19){
-        messageEl.textContent = "Player 2 has won the game! 🥳";
-        img1.classList.remove("show");
-        player1Dice.classList.remove("active");
+        victory2();
+        removeStyle();
         showResetBtn();
     }
 
@@ -72,6 +102,8 @@ function resetGame() {
     player1Score = 0;
     player2Score = 0;
     player1Turn = true;
+    countTurn1 = 0;
+    countTurn2 = 0;
     messageEl.textContent = "Player 1 Turn";
     player1Dice.textContent = "-";
     player2Dice.textContent = "-";
