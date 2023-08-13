@@ -116,3 +116,30 @@ header i {
 .buttons #reset-btn {
     display: none;
 }
+
+/* responsive */
+@media(max-width: 576px) {
+    html {
+        font-size: 8px;
+    }
+    .container {
+        max-width: 350px;
+        padding: 3rem;
+    }
+    .player-screen h2 {
+        font-size: 2rem;
+    }
+    .playerDiceArea .dice {
+        font-size: 2.5rem;
+    }
+    .player-screen .players .playerDiceArea {
+        width: 16rem;
+        height: 8rem;
+    }
+    .playerDiceArea .image2 {
+        left: 1%;
+    }
+    .players .active {
+        box-shadow: none;
+    }
+}
